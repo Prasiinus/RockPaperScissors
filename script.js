@@ -48,7 +48,6 @@ function playRound() {
 
 
 function jeu() {
-    //ajouter le comptage de score ici 
     monscore = 0;
     ordiscore = 0;
     for (let i = 0; i < 5; i++) {
@@ -56,11 +55,11 @@ function jeu() {
         console.log('Player score : ' + monscore)
         console.log('Computer score : ' + ordiscore)
     }
-    if (ordiscore > monscore) {
-        alert('L\'ordinateur à gagné ! ' + ordiscore+'-'+monscore)
-    } else if (monscore > ordiscore) {
-        alert('Vous avez gagné ! ' + monscore +'-' +ordiscore)
-    } else  alert('Match nul ! ' +monscore+'-'+ordiscore)
+    (ordiscore > monscore) ?
+        alert('L\'ordinateur à gagné ! ' + ordiscore + '-' + monscore)
+        : (monscore > ordiscore) ?
+            alert('Vous avez gagné ! ' + monscore + '-' + ordiscore)
+            : alert('Match nul ! ' + monscore + '-' + ordiscore);
 
 }
 jeu();
