@@ -6,12 +6,19 @@ function getComputerChoice() {
     return game[Math.floor(Math.random() * game.length)];
 }
 
-function playRound() {
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+     const playerSelection=button.id;
+     playRound(playerSelection);
+    });
+  });
+
+
+function playRound(playerSelection) {
     const computerChoice = getComputerChoice();
-    const playerSelection = prompt('Your turn').toLowerCase();
     console.log('Choix de l\'ordinateur : ' + computerChoice);
     console.log('Mon choix : ' + playerSelection);
-
     switch (true) {
         case computerChoice === playerSelection:
             alert("Match null");
@@ -47,11 +54,11 @@ function playRound() {
 }
 
 
-function jeu() {
+function jeu(playerSelection) {
     monscore = 0;
     ordiscore = 0;
-    for (let i = 0; i < 5; i++) {
-        playRound();
+    for (let i = 0; i < 1; i++) {
+        playRound(playerSelection);
         console.log('Player score : ' + monscore)
         console.log('Computer score : ' + ordiscore)
     }
@@ -62,20 +69,21 @@ function jeu() {
             : alert('Match nul ! ' + monscore + '-' + ordiscore);
 
 }
-jeu();
 
-const results = document.querySelector('#results');
 
-function calculate() {
-  for (let i = 1; i < 10; i++) {
-    const newResult = `${i} x ${i} = ${i * i}`;
-    results.textContent += `${newResult}\n`;
-  }
-  results.textContent += '\nFinished!';
-}
 
-const calculateBtn = document.querySelector('#calculate');
-const clearBtn = document.querySelector('#clear');
 
-calculateBtn.addEventListener('click', calculate);
-clearBtn.addEventListener('click', () => results.textContent = '');
+
+
+// function calculate() {
+//   for (let i = 1; i < 10; i++) {
+//     const newResult = `${i} x ${i} = ${i * i}`;
+//     results.textContent += `${newResult}\n`;
+//   }
+//   results.textContent += '\nFinished!';
+// }
+// const results = document.querySelector('#results');
+// const calculateBtn = document.querySelector('#calculate');
+// const clearBtn = document.querySelector('#clear');
+// calculateBtn.addEventListener('click', calculate);
+// clearBtn.addEventListener('click', () => results.textContent = '');
