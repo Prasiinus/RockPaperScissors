@@ -6,12 +6,16 @@ let tour = 0;
 const laDiv = document.querySelector('#div');
 const para = document.createElement('p');
 const result = document.createElement('p');
+const lescore = document.createElement('p');
 para.textContent="Faite votre choix";
+
 laDiv.appendChild(para);
 laDiv.appendChild(result);
+
 const resetBtn = document.createElement('button');
 resetBtn.textContent="Rejouer";
 resetBtn.setAttribute('class','reset')
+
 
 function getComputerChoice() {
     return game[Math.floor(Math.random() * game.length)];
@@ -33,30 +37,30 @@ function playRound(playerSelection) {
     console.log('tour : ' + tour)
     switch (true) {
         case computerChoice === playerSelection:
-            para.textContent="Match null";
+            para.textContent='Round ' + tour + ' : Egalité';
             break;
         case computerChoice === 'pierre' && playerSelection === 'feuille':
-            para.textContent='La feuille enveloppe la pierre, Gagné !!';
+            para.textContent='Round ' + tour + ' : La feuille enveloppe la pierre, Gagné !!';
             monscore++
             break;
         case computerChoice === 'feuille' && playerSelection === 'pierre':
-            para.textContent='La pierre est enveloppé par la feuille, Perdu !!';
+            para.textContent='Round ' + tour + ' : La pierre est enveloppé par la feuille, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'ciseaux' && playerSelection === 'pierre':
-            para.textContent='La pierre écrase les ciseaux, Gagné !!';
+            para.textContent='Round ' + tour + ' : La pierre écrase les ciseaux, Gagné !!';
             monscore++
             break;
         case computerChoice === 'pierre' && playerSelection === 'ciseaux':
-            para.textContent='Les ciseaux sont écrasés par la pierre, Perdu !!';
+            para.textContent='Round ' + tour + ' : Les ciseaux sont écrasés par la pierre, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'ciseaux' && playerSelection === 'feuille':
-            para.textContent='La feuille est coupé par les ciseaux, Perdu !!';
+            para.textContent='Round ' + tour + ' : La feuille est coupé par les ciseaux, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'feuille' && playerSelection === 'ciseaux':
-            para.textContent='Les ciseaux coupent la feuille, Gagné !!';
+            para.textContent='Round ' + tour + ' : Les ciseaux coupent la feuille, Gagné !!';
             monscore++
             break;
 
@@ -67,10 +71,13 @@ function playRound(playerSelection) {
 
 
 function jeu(playerSelection) {
-
+    
     if (tour <= 5) { 
         tour++;
         playRound(playerSelection);
+        lescore.textContent='Player : ' + monscore + ' Computer :' + ordiscore;
+        laDiv.appendChild(lescore);
+
     } 
     if (tour == 5) {
         buttons.forEach((button) => {
@@ -80,9 +87,9 @@ function jeu(playerSelection) {
         (ordiscore > monscore) ?
         result.textContent='L\'ordinateur a gagné ! ' + ordiscore + '-' + monscore
         : (monscore > ordiscore) ?
-         result.textContent='Vous avez gagné ! ' + monscore + '-' + ordiscore
+         result.textContent='Le joueur gagne ! ' + monscore + '-' + ordiscore
             : result.textContent='Match nul ! ' + monscore + '-' + ordiscore;
-        
+        laDiv.removeChild(lescore);
         laDiv.appendChild(resetBtn);
         resetBtn.addEventListener('click',() => location.reload());
     }
