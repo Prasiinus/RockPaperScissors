@@ -1,6 +1,17 @@
 const game = ['pierre', 'feuille', 'ciseaux'];
-let monscore;
-let ordiscore;
+let monscore = 0;
+let ordiscore= 0;
+let tour = 0;
+
+const laDiv = document.querySelector('#div');
+const para = document.createElement('p');
+const result = document.createElement('p');
+para.textContent="Faite votre choix";
+laDiv.appendChild(para);
+laDiv.appendChild(result);
+const resetBtn = document.createElement('button');
+resetBtn.textContent="Rejouer";
+resetBtn.setAttribute('class','reset')
 
 function getComputerChoice() {
     return game[Math.floor(Math.random() * game.length)];
@@ -9,81 +20,74 @@ function getComputerChoice() {
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-     const playerSelection=button.id;
-     playRound(playerSelection);
+        const playerSelection = button.id;
+        jeu(playerSelection);
     });
-  });
+});
 
 
 function playRound(playerSelection) {
     const computerChoice = getComputerChoice();
     console.log('Choix de l\'ordinateur : ' + computerChoice);
     console.log('Mon choix : ' + playerSelection);
+    console.log('tour : ' + tour)
     switch (true) {
         case computerChoice === playerSelection:
-            alert("Match null");
+            para.textContent="Match null";
             break;
         case computerChoice === 'pierre' && playerSelection === 'feuille':
-            alert('La feuille enveloppe la pierre, Gagné !!');
+            para.textContent='La feuille enveloppe la pierre, Gagné !!';
             monscore++
             break;
         case computerChoice === 'feuille' && playerSelection === 'pierre':
-            alert('La pierre est enveloppé par la feuille, Perdu !!');
+            para.textContent='La pierre est enveloppé par la feuille, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'ciseaux' && playerSelection === 'pierre':
-            alert('La pierre écrase les ciseaux, Gagné !!');
+            para.textContent='La pierre écrase les ciseaux, Gagné !!';
             monscore++
             break;
         case computerChoice === 'pierre' && playerSelection === 'ciseaux':
-            alert('Les ciseaux sont écrasés par la pierre, Perdu !!');
+            para.textContent='Les ciseaux sont écrasés par la pierre, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'ciseaux' && playerSelection === 'feuille':
-            alert('La feuille est coupé par les ciseaux, Perdu !!');
+            para.textContent='La feuille est coupé par les ciseaux, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'feuille' && playerSelection === 'ciseaux':
-            alert('Les ciseaux coupent la feuille, Gagné !!');
+            para.textContent='Les ciseaux coupent la feuille, Gagné !!';
             monscore++
             break;
 
-        default: alert('Rien ne se passe . . . ');
+        default: para.textContent='Rien ne se passe . . . ';
             break;
     }
 }
 
 
 function jeu(playerSelection) {
-    monscore = 0;
-    ordiscore = 0;
-    for (let i = 0; i < 1; i++) {
-        playRound(playerSelection);
-        console.log('Player score : ' + monscore)
-        console.log('Computer score : ' + ordiscore)
-    }
-    (ordiscore > monscore) ?
-        alert('L\'ordinateur à gagné ! ' + ordiscore + '-' + monscore)
-        : (monscore > ordiscore) ?
-            alert('Vous avez gagné ! ' + monscore + '-' + ordiscore)
-            : alert('Match nul ! ' + monscore + '-' + ordiscore);
 
+    if (tour <= 5) { 
+        tour++;
+        playRound(playerSelection);
+    } 
+    if (tour == 5) {
+        buttons.forEach((button) => {
+            button.disabled = true; 
+        });
+
+        (ordiscore > monscore) ?
+        result.textContent='L\'ordinateur a gagné ! ' + ordiscore + '-' + monscore
+        : (monscore > ordiscore) ?
+         result.textContent='Vous avez gagné ! ' + monscore + '-' + ordiscore
+            : result.textContent='Match nul ! ' + monscore + '-' + ordiscore;
+        
+        laDiv.appendChild(resetBtn);
+        resetBtn.addEventListener('click',() => location.reload());
+    }
 }
 
 
 
 
-
-
-// function calculate() {
-//   for (let i = 1; i < 10; i++) {
-//     const newResult = `${i} x ${i} = ${i * i}`;
-//     results.textContent += `${newResult}\n`;
-//   }
-//   results.textContent += '\nFinished!';
-// }
-// const results = document.querySelector('#results');
-// const calculateBtn = document.querySelector('#calculate');
-// const clearBtn = document.querySelector('#clear');
-// calculateBtn.addEventListener('click', calculate);
-// clearBtn.addEventListener('click', () => results.textContent = '');
