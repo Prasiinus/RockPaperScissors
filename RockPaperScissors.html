@@ -7,12 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    </style>
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>Kaiji</h1>
-    <button id="pierre">Pierre</button>
-    <button id="feuille">Feuille</button>
-    <button id="ciseaux">ciseaux</button>
-    <div id="div"></div>
+    <header>
+        <h1>Kaiji</h1>
+    </header>
+    <main>
+        <div id="points">
+            <div id="joueur">
+                <p>Joueur</p>
+                <p class="pscore"></p>
+            </div>
+            <div id="ordi">
+                <p>Ordinateur</p>
+                <p class="score"></p>
+            </div>
+        </div>
+        <div class="choix">
+            <button id="pierre"><img
+                    src="https://icons.veryicon.com/png/System/Icons8%20Metro%20Style/Rock%20Paper%20Scissors%20Rock.png"
+                    alt="rock">
+            </button>
+            <button id="feuille"><img
+                    src="https://icons.veryicon.com/png/System/Icons8%20Metro%20Style/Rock%20Paper%20Scissors%20Paper.png"
+                    alt="paper">
+            </button>
+            <button id="ciseaux"><img
+                    src="https://icons.veryicon.com/png/System/Icons8%20Metro%20Style/Rock%20Paper%20Scissors%20Scissors.png"
+                    alt="scissors">
+            </button>
+        </div>
+        <div id="resultat"></div>
+
+    </main>
+
+    <footer class="footer">
+        <p> Copyright ©
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            Prasiinus
+            <a href="https://github.com/Prasiinus" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </p>
+       
+    </footer>
+
 </html>

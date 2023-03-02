@@ -3,14 +3,15 @@ let monscore = 0;
 let ordiscore= 0;
 let tour = 0;
 
-const laDiv = document.querySelector('#div');
+const laDiv = document.querySelector('#resultat');
+const score = document.querySelector('.score');
 const para = document.createElement('p');
 const result = document.createElement('p');
 const lescore = document.createElement('p');
-para.textContent="Faite votre choix";
+score.textContent="Faite votre choix";
 
 laDiv.appendChild(para);
-laDiv.appendChild(result);
+
 
 const resetBtn = document.createElement('button');
 resetBtn.textContent="Rejouer";
@@ -37,7 +38,7 @@ function playRound(playerSelection) {
     console.log('tour : ' + tour)
     switch (true) {
         case computerChoice === playerSelection:
-            para.textContent='Round ' + tour + ' : Egalité';
+            para.textContent='Round ' + tour + ' : Egalité '+computerChoice+' - '+playerSelection;
             break;
         case computerChoice === 'pierre' && playerSelection === 'feuille':
             para.textContent='Round ' + tour + ' : La feuille enveloppe la pierre, Gagné !!';
@@ -75,8 +76,7 @@ function jeu(playerSelection) {
     if (tour <= 5) { 
         tour++;
         playRound(playerSelection);
-        lescore.textContent='Player : ' + monscore + ' Computer :' + ordiscore;
-        laDiv.appendChild(lescore);
+        score.textContent='Joueur : ' + monscore + ' - Ordinateur : ' + ordiscore;
 
     } 
     if (tour == 5) {
@@ -89,8 +89,11 @@ function jeu(playerSelection) {
         : (monscore > ordiscore) ?
          result.textContent='Le joueur gagne ! ' + monscore + '-' + ordiscore
             : result.textContent='Match nul ! ' + monscore + '-' + ordiscore;
-        laDiv.removeChild(lescore);
-        laDiv.appendChild(resetBtn);
+        score.setAttribute('class', 'fin')
+        para.setAttribute('class', 'fin')
+        laDiv.appendChild(result)
+        laDiv.appendChild(resetBtn)
+        
         resetBtn.addEventListener('click',() => location.reload());
     }
 }

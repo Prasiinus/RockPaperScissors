@@ -1,0 +1,89 @@
+:root {
+    --primary-light: #8e8d8d;
+  }
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    justify-content: space-between;
+    gap: 3vh;
+}
+
+#score {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+
+.choix>button {
+    margin-top: 15px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 100px;
+    color: #F9FAF8;
+    border-color: #ffff;
+}
+.choix>button>img {
+    display: flex;
+    width: 30px;
+}
+
+.choix:disabled {
+    background-color: #ffffff;
+}
+
+.fin {
+    color: #00000075;
+}
+
+.reset {
+    background-color: #3882F6;
+    color: #F9FAF8;
+    padding: 10px 35px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-color: #ffff;
+}
+
+.reset:hover{
+    background-color: #ffffff;
+    color: #3882F6;
+}
+
+.footer {
+    bottom: 0;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    color: var(--primary-light);
+    font-size: 20px;
+    flex: 1 1 auto;
+}
+.fa-github {
+    color: var(--primary-light);
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }
+
+  /* *{
+    border: 1px solid black;
+  } */
