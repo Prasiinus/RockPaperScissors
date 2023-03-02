@@ -61,7 +61,7 @@ function playRound(playerSelection) {
             ordiscore++
             break;
         case computerChoice === 'feuille' && playerSelection === 'ciseaux':
-            para.textContent='Round ' + tour + ' : Les ciseaux coupent la feuille, Gagné !!';
+            para.textContent='Roound ' + tour + ' : Les ciseaux coupent la feuille, Gagné !!';
             monscore++
             break;
 
