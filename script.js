@@ -4,18 +4,26 @@ let ordiscore= 0;
 let tour = 0;
 
 const laDiv = document.querySelector('#resultat');
-const score = document.querySelector('.score');
+const scorej = document.querySelector('.scorej');
+const scoreo = document.querySelector('.scoreo');
+scorej.textContent=monscore;
+scoreo.textContent=ordiscore;
 const para = document.createElement('p');
 const result = document.createElement('p');
 const lescore = document.createElement('p');
-score.textContent="Faite votre choix";
+para.textContent="Faite votre choix";
 
 laDiv.appendChild(para);
 
 
 const resetBtn = document.createElement('button');
-resetBtn.textContent="Rejouer";
+const spanBtn = document.createElement('span');
+spanBtn.textContent="Rejouer"
+resetBtn.appendChild(spanBtn);
+
 resetBtn.setAttribute('class','reset')
+resetBtn.setAttribute('class','btn-shine')
+
 
 
 function getComputerChoice() {
@@ -61,7 +69,7 @@ function playRound(playerSelection) {
             ordiscore++
             break;
         case computerChoice === 'feuille' && playerSelection === 'ciseaux':
-            para.textContent='Roound ' + tour + ' : Les ciseaux coupent la feuille, Gagné !!';
+            para.textContent='Round ' + tour + ' : Les ciseaux coupent la feuille, Gagné !!';
             monscore++
             break;
 
@@ -76,8 +84,8 @@ function jeu(playerSelection) {
     if (tour <= 5) { 
         tour++;
         playRound(playerSelection);
-        score.textContent='Joueur : ' + monscore + ' - Ordinateur : ' + ordiscore;
-
+        scorej.textContent=monscore;
+        scoreo.textContent=ordiscore;
     } 
     if (tour == 5) {
         buttons.forEach((button) => {
@@ -89,7 +97,8 @@ function jeu(playerSelection) {
         : (monscore > ordiscore) ?
          result.textContent='Le joueur gagne ! ' + monscore + '-' + ordiscore
             : result.textContent='Match nul ! ' + monscore + '-' + ordiscore;
-        score.setAttribute('class', 'fin')
+        scorej.setAttribute('class', 'fin')
+        scoreo.setAttribute('class', 'fin')
         para.setAttribute('class', 'fin')
         laDiv.appendChild(result)
         laDiv.appendChild(resetBtn)

@@ -7,38 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="fond.css">
     <link rel="stylesheet" href="style.css">
-    <style>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
     </style>
     <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="area" >
+        <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
     <header>
-        <h1>Kaiji</h1>
+        <h1>Rock Paper Scissors</h1>
     </header>
     <main>
         <div id="points">
             <div id="joueur">
                 <p>Joueur</p>
-                <p class="pscore"></p>
+                <p class="scorej"></p>
             </div>
             <div id="ordi">
                 <p>Ordinateur</p>
-                <p class="score"></p>
+                <p class="scoreo"></p>
             </div>
         </div>
         <div class="choix">
-            <button id="pierre"><img
+            <button class="btn" id="pierre"><img
                     src="https://icons.veryicon.com/png/System/Icons8%20Metro%20Style/Rock%20Paper%20Scissors%20Rock.png"
                     alt="rock">
             </button>
-            <button id="feuille"><img
+            <button class="btn" id="feuille"><img
                     src="https://icons.veryicon.com/png/System/Icons8%20Metro%20Style/Rock%20Paper%20Scissors%20Paper.png"
                     alt="paper">
             </button>
-            <button id="ciseaux"><img
+            <button class="btn" id="ciseaux"><img
                     src="https://icons.veryicon.com/png/System/Icons8%20Metro%20Style/Rock%20Paper%20Scissors%20Scissors.png"
                     alt="scissors">
             </button>
@@ -46,9 +63,9 @@
         <div id="resultat"></div>
 
     </main>
-
+</div >
     <footer class="footer">
-        <p> Copyright ©
+        <p class="z3"> Copyright ©
             <script>
                 document.write(new Date().getFullYear())
             </script>
@@ -59,5 +76,5 @@
         </p>
        
     </footer>
- 
+
 </html>
