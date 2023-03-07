@@ -105,8 +105,28 @@ function jeu(playerSelection) {
         para.setAttribute('class', 'fin')
         laDiv.appendChild(result)
         laDiv.appendChild(resetBtn)
-        
-        resetBtn.addEventListener('click',() => location.reload());
+    
+        // resetBtn.addEventListener('click',() => location.reload());
+
+        //ce reset permet de rejouer sans reload et donc 
+        //sans redemarrer l'animation du background
+        resetBtn.addEventListener('click',() => { 
+            ordiscore=0
+            monscore=0
+            tour=0
+            scorej.textContent=monscore;
+            scoreo.textContent=ordiscore;
+            para.textContent="Faite votre choix";
+            scorej.removeAttribute('class', 'fin')
+            scoreo.removeAttribute('class', 'fin')
+            para.removeAttribute('class', 'fin')
+            laDiv.removeChild(result)
+            laDiv.removeChild(resetBtn)
+            buttons.forEach((button) => {
+                button.disabled = false; 
+            });
+            
+        });
     }
 }
 
