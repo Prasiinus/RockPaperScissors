@@ -109,7 +109,7 @@ function jeu(playerSelection) {
         // resetBtn.addEventListener('click',() => location.reload());
 
         //ce reset permet de rejouer sans reload et donc 
-        //sans redemarrer l'animation du background
+        //sans redemarrer l'animation du background 
         resetBtn.addEventListener('click',() => { 
             ordiscore=0
             monscore=0
