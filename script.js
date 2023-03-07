@@ -9,6 +9,7 @@ const scoreo = document.querySelector('.scoreo');
 scorej.textContent=monscore;
 scoreo.textContent=ordiscore;
 const para = document.createElement('p');
+para.setAttribute('style', 'white-space: pre')
 const result = document.createElement('p');
 const lescore = document.createElement('p');
 para.textContent="Faite votre choix";
@@ -46,30 +47,30 @@ function playRound(playerSelection) {
     console.log('tour : ' + tour)
     switch (true) {
         case computerChoice === playerSelection:
-            para.textContent='Round ' + tour + ' : Egalité '+computerChoice+' - '+playerSelection;
+            para.textContent='Round : ' + tour + ' \nEgalité '+computerChoice+' - '+playerSelection;
             break;
         case computerChoice === 'pierre' && playerSelection === 'feuille':
-            para.textContent='Round ' + tour + ' : La feuille enveloppe la pierre, Gagné !!';
+            para.textContent='Round : ' + tour + ' \nLa feuille enveloppe la pierre, Gagné !!';
             monscore++
             break;
         case computerChoice === 'feuille' && playerSelection === 'pierre':
-            para.textContent='Round ' + tour + ' : La pierre est enveloppé par la feuille, Perdu !!';
+            para.textContent='Round : ' + tour + ' \nLa pierre est enveloppé par la feuille, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'ciseaux' && playerSelection === 'pierre':
-            para.textContent='Round ' + tour + ' : La pierre écrase les ciseaux, Gagné !!';
+            para.textContent='Round : ' + tour + ' \nLa pierre écrase les ciseaux, Gagné !!';
             monscore++
             break;
         case computerChoice === 'pierre' && playerSelection === 'ciseaux':
-            para.textContent='Round ' + tour + ' : Les ciseaux sont écrasés par la pierre, Perdu !!';
+            para.textContent='Round : ' + tour + ' \nLes ciseaux sont écrasés par la pierre, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'ciseaux' && playerSelection === 'feuille':
-            para.textContent='Round ' + tour + ' : La feuille est coupé par les ciseaux, Perdu !!';
+            para.textContent='Round : ' + tour + ' \nLa feuille est coupé par les ciseaux, Perdu !!';
             ordiscore++
             break;
         case computerChoice === 'feuille' && playerSelection === 'ciseaux':
-            para.textContent='Round ' + tour + ' : Les ciseaux coupent la feuille, Gagné !!';
+            para.textContent='Round : ' + tour + ' \nLes ciseaux coupent la feuille, Gagné !!';
             monscore++
             break;
 
