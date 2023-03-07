@@ -8,8 +8,10 @@ const scorej = document.querySelector('.scorej');
 const scoreo = document.querySelector('.scoreo');
 scorej.textContent=monscore;
 scoreo.textContent=ordiscore;
+
 const para = document.createElement('p');
-para.setAttribute('style', 'white-space: pre')
+para.setAttribute('style', 'white-space: pre; line-height: 2em;');
+//white space permet d'afficher les \n et ligne height d'avoir un ecart entre les deux ligne
 const result = document.createElement('p');
 const lescore = document.createElement('p');
 para.textContent="Faite votre choix";
